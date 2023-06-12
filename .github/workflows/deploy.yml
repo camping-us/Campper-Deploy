@@ -16,11 +16,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
 
-      # - name: create env file
-      #   run: |
-      #     touch .env
-      #     echo "${{ secrets.ENV_VARS }}" >> .env
-      #     cat .env
+      - name: create env file
+        run: |
+          touch .env
+          echo "${{ secrets.ENV_VARS }}" >> .env
+          cat .env
+
       - name: create remote directory
         uses: appleboy/ssh-action@master
         with:
@@ -48,4 +49,4 @@ jobs:
             sh ~/srv/ubuntu/deploy.sh
             echo "start docker-compose up: ubuntu"
             sudo docker-compose -f ~/srv/ubuntu/docker-compose.yml pull
-            sudo docker-compose -f ~/srv/ubuntu/docker-compose.yml up --build -d
+            sudo docker-compose -f ~/srv/ubuntu/docker-compose.yml --env-file ~/srv/ubuntu/.env up --build -d
