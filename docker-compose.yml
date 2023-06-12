@@ -12,7 +12,7 @@ services:
     container_name: backend
     hostname: backend
     env_file:
-      - ./.env
+      - .env
     expose:
       - "8080"
 
