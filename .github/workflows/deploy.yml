@@ -5,7 +5,7 @@ on:
     branches:
       - main
   repository_dispatch:
-    types: [ backend_event ]
+    types: [backend_event, frontend_event]
 
 jobs:
   build:
