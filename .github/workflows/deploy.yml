@@ -5,7 +5,7 @@ on:
     branches:
       - main
   repository_dispatch:
-    types: [backend_event, front_event]
+    types: [backend_event, frontend_event]
 
 jobs:
   build:
@@ -16,11 +16,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
 
-      - name: create env file
+      - name: create env files
         run: |
           touch .env
           echo "${{ secrets.ENV_VARS }}" >> .env
-          cat .env
+          touch .env.local
+          echo "${{ secrets.ENV_LOCAL_VARS }}" >> .env.local
 
       - name: create remote directory
         uses: appleboy/ssh-action@master

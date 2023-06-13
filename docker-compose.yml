@@ -20,6 +20,8 @@ services:
     image: squirmm/campper-client:main
     container_name: client
     hostname: client
+    env_file:
+      - .env.local
     ports:
       - "3000:3000"
 
