@@ -16,20 +16,20 @@ services:
     expose:
       - "8080"
 
-  # client:
-  #   image: squirmm/campper-client:dev
-  #   container_name: client
-  #   hostname: client
-  #   env_file:
-  #     - .env.local
-  #   ports:
-  #     - "3000"
+  client:
+    image: squirmm/campper-client:dev
+    container_name: client
+    hostname: client
+    env_file:
+      - .env.local
+    ports:
+      - "3000"
 
   # nginx 설정
   nginx:
     depends_on:
       - backend
-      # - client
+      - client
       - redis
     restart: always
     build:
