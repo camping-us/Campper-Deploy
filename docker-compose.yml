@@ -22,7 +22,7 @@ services:
     container_name: client
     hostname: client
     env_file:
-      - .env.local
+      - .env
       - .env.local
     ports:
       - "3000:3000"
