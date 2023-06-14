@@ -13,7 +13,6 @@ services:
     hostname: backend
     env_file:
       - .env
-      - .env.local
     expose:
       - "8080"
 
@@ -22,7 +21,6 @@ services:
     container_name: client
     hostname: client
     env_file:
-      - .env
       - .env.local
     ports:
       - "3000:3000"
