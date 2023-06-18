@@ -17,7 +17,7 @@ services:
       - "8080:8080"
 
   client:
-    image: squirmm/campper-client:dev
+    image: squirmm/campper-client:main
     container_name: client
     hostname: client
     env_file:
