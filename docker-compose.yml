@@ -13,17 +13,17 @@ services:
     hostname: backend
     env_file:
       - .env
-    ports:
-      - "8080:8080"
+    expose:
+      - "8080"
 
   client:
     image: squirmm/campper-client:main
     container_name: client
     hostname: client
-    env_file:
-      - .env.local
+    # env_file:
+    #   - .env.local
     ports:
-      - "3000:3000"
+      - "3000"
 
   # nginx 설정
   nginx:
